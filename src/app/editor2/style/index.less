@@ -1,0 +1,36 @@
+::ng-deep {
+  .w-e-text-container [data-slate-editor] .table-container {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .w-e-text-container [data-slate-editor] table th {
+    border-right-width: 1px !important;
+  }
+
+  .w-e-bar-divider {
+    height: 20px;
+    margin: 10px 5px;
+  }
+
+  .w-e-bar-item-menus-container .w-e-bar-item button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  // 把“插入表格”放到了“插入”菜单组下了，调整对应的箭头图标样式、框选表格行列的位置
+  .w-e-bar-item-menus-container .w-e-bar-item button[data-menu-key="insertTable"] {
+    :nth-child(3) {
+      transform: rotate(-90deg);
+    }
+    + .w-e-drop-panel {
+      left: 110px !important;
+      margin-top: 0;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,5 @@
+<div #toolbar id="toolbar-container"></div>
+
+<div id="editor—wrapper" [ngStyle]="{ height: 'calc(100% - ' + toolbar.offsetHeight + 'px)' }">
+  <div id="editor-container" (click)="onEditorClick($event)"></div>
+</div>

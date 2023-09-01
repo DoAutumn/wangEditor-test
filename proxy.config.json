@@ -1,0 +1,7 @@
+{
+  "/wilkinson": {
+      "target": "http://10.7.195.91:24100/",
+      "secure": false,
+      "ws": true
+  }
+}

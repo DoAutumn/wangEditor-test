@@ -1,0 +1,64 @@
+<!-- <t-classic-editor [(ngModel)]="htmlContent"></t-classic-editor> -->
+
+<!-- <t-inline-editor [(ngModel)]="htmlContent"></t-inline-editor> -->
+
+<!-- <t-document-editor [(ngModel)]="htmlContent"></t-document-editor> -->
+
+<!-- <t-inline-editor-biz #editorBiz (onSelectData)="getWilkinsonList($event)"></t-inline-editor-biz> -->
+
+<t-document-editor-biz #editorBiz [(ngModel)]="htmlContent" (onSelectData)="getWilkinsonList($event)" [createChart]="createChart" [getData]="getData"></t-document-editor-biz>
+
+<!-- <div (click)="onGetHTML()">GetHTML</div> -->
+
+<t-dialog header="指标列表" [(visible)]="dialogVisible" [style]="{width: '800px',height:'500px', minWidth: '200px'}" [closeIcon]="'icon-colse'">
+  <div class="tui-dialog">
+    <t-table
+      [data]="tableData"
+      [scrollable]="true"
+      scrollHeight="300px"
+      [paginator]="true"
+      [rows]="10"
+      [pageIndex]="0"
+      [displayRecords]="true"
+      [displayPages]="true"
+      [jumpToPage]="true"
+      [paginatorTotalTayout]="'left'"
+      >
+      <ng-template tTemplate="header">
+        <tr>
+          <th>序号</th>
+          <th>名称</th>
+          <!-- <th>创建人</th>
+          <th>时间</th>
+          <th>描述</th> -->
+          <th>操作</th>
+        </tr>
+      </ng-template>
+      <ng-template tTemplate="body" let-row let-rowIndex="rowIndex">
+        <tr>
+          <td>{{rowIndex + 1}}</td>
+          <td>{{row.name}}</td>
+          <!-- <td>{{row.creater}}</td>
+          <td>{{row.year}}</td>
+          <td>{{row.detail}}</td> -->
+          <td class="tx-center">
+            <a (click)="onSelectWilkinson(row)">
+              <!-- <span class="icon-eye1"></span> -->
+              选择
+            </a>
+            <!-- <a class="tablea">
+              <span class="icon-edit" tTooltip="修改" tooltipPosition="bottom"></span>
+            </a>
+            <a class="tablea">
+              <span class="icon-delete" tTooltip="删除" tooltipPosition="bottom"></span>
+            </a> -->
+          </td>
+        </tr>
+      </ng-template>
+    </t-table>
+  </div>
+  <t-footer>
+    <button type="button" tButton (click)="dialogVisible=false" label="确定" class="ui-button-primary"></button>
+    <button type="button" tButton (click)="dialogVisible=false" label="取消" class="ui-button-secondary"></button>
+  </t-footer>
+</t-dialog>
